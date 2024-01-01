@@ -164,9 +164,9 @@ public class KClosestElement {
                 high = mid - 1;
             }
         }
-        if (low > 0) {
+        /*if (low > 0) {
             return low - 1;
-        }
+        }*/
         return low;
     }
 

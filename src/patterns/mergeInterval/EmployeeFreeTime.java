@@ -4,9 +4,9 @@ import java.util.*;
 
 public class EmployeeFreeTime {
     public static void main(String[] args) {
-        System.out.println(employeeFreeTime(Arrays.asList(Arrays.asList(new Interval(1, 3), new Interval(5, 6)), Arrays.asList(new Interval(2, 3), new Interval(6, 8)))));
-        System.out.println(employeeFreeTime(Arrays.asList(Arrays.asList(new Interval(1, 3), new Interval(9, 12)), Arrays.asList(new Interval(2, 4)), Arrays.asList(new Interval(6, 8)))));
-        System.out.println(employeeFreeTime(Arrays.asList(Arrays.asList(new Interval(1, 3), new Interval(2, 4)), Arrays.asList(new Interval(3, 5), new Interval(7, 9)))));
+        System.out.println(employeeFreeTime(Arrays.asList(Arrays.asList(new Interval(1, 3), new Interval(5, 6)), Arrays.asList(new Interval(2, 3), new Interval(6, 8)))));//[Interval{start=3, end=5}]
+        System.out.println(employeeFreeTime(Arrays.asList(Arrays.asList(new Interval(1, 3), new Interval(9, 12)), Arrays.asList(new Interval(2, 4)), Arrays.asList(new Interval(6, 8)))));//[Interval{start=4, end=6}, Interval{start=8, end=9}]
+        System.out.println(employeeFreeTime(Arrays.asList(Arrays.asList(new Interval(1, 3), new Interval(2, 4)), Arrays.asList(new Interval(3, 5), new Interval(7, 9)))));//[Interval{start=5, end=7}]
 
         List<List<Interval>> input = new ArrayList<>();
         input.add(new ArrayList<Interval>(Arrays.asList(new Interval(1, 3),

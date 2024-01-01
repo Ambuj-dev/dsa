@@ -16,9 +16,9 @@ public class RightLeftViewOfBinaryTree {
         queue.add(root);
         while(!queue.isEmpty()){
             int levelSize = queue.size();
-            for(int i = 0; i< levelSize; i++){
+            for(int i = 0; i < levelSize; i++){
                 TreeNode currentNode = queue.poll();
-                if(i +1 == levelSize){
+                if(i + 1 == levelSize){
                     result.add(currentNode.value);
                 }
                 if(currentNode.left != null) queue.add(currentNode.left);

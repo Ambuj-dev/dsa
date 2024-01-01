@@ -26,7 +26,7 @@ public class SurroundingRegions {
         int vis[][] = new int[n][m];
         // traverse first row and last row
         for(int j = 0 ; j<m; j++) {
-            // check for unvisited Os in the boundary rws
+            // check for unvisited Os in the boundary rows
             // first row
             if(vis[0][j] == 0 && mat[0][j] == 'O') {
                 dfs(0, j, vis, mat, delrow, delcol);

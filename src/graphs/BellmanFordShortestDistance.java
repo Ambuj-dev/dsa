@@ -9,7 +9,7 @@ import java.util.Arrays;
  *   V: number of vertices
  */
 public class BellmanFordShortestDistance {
-
+//TC: O(V*E) SC:O(V)
         static int[] bellman_ford(int V,
                                   ArrayList<ArrayList<Integer>> edges, int S) {
             int[] dist = new int[V];

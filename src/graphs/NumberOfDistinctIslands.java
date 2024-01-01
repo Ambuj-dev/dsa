@@ -31,14 +31,14 @@ public class NumberOfDistinctIslands {
     }
 
     private String toString(int r, int c) {
-        return Integer.toString(r) + " " + Integer.toString(c);
+        return r + " " + c;
     }
 
     int countDistinctIslands(int[][] grid) {
         int n = grid.length;
         int m = grid[0].length;
         int vis[][] = new int[n][m];
-        HashSet<ArrayList<String>> st = new HashSet<>();
+        HashSet<ArrayList<String>> set = new HashSet<>();
 
         // traverse the grid
         for (int i = 0; i < n; i++) {
@@ -48,11 +48,11 @@ public class NumberOfDistinctIslands {
                     ArrayList<String> vec = new ArrayList<>();
                     dfs(i, j, vis, grid, vec, i, j);
                     // store it in HashSet
-                    st.add(vec);
+                    set.add(vec);
                 }
             }
         }
-        return st.size();
+        return set.size();
     }
 
     public static void main(String[] args) {

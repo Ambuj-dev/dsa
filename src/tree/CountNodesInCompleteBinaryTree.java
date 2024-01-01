@@ -19,7 +19,7 @@ public class CountNodesInCompleteBinaryTree {
         }
         return hght;
     }
-
+    //TC: O(log^2N) SC:O(logN)
     static int countNodes(Node root) {
         if (root == null) return 0;
 
@@ -33,7 +33,7 @@ public class CountNodesInCompleteBinaryTree {
 
         return 1 + leftNodes + rightNodes;
     }
-
+    //TC: O(N) SC:O(logN)
     static void inOrderTrav(Node curr, int count[]) {
         if (curr == null)
             return;
@@ -41,6 +41,17 @@ public class CountNodesInCompleteBinaryTree {
         count[0]++;
         inOrderTrav(curr.left, count);
         inOrderTrav(curr.right, count);
+    }
+    //TC: O(N) SC:O(logN)
+    static int totalNodes(Node root)
+    {
+        if (root == null)
+            return 0;
+
+        int l = totalNodes(root.left);
+        int r = totalNodes(root.right);
+
+        return 1 + l + r;
     }
 
     public static void main(String args[]) {
@@ -56,12 +67,13 @@ public class CountNodesInCompleteBinaryTree {
         root.left.left.right = new Node(9);
         root.left.right.left = new Node(10);
         root.left.right.right = new Node(11);
-        root.right.left.left = new Node(12);
+        //root.right.left.left = new Node(12);
 
 
         System.out.println("The total number of nodes in the given complete binary tree are: " + countNodes(root));
         int count[] = new int[1];
         inOrderTrav(root, count);
         System.out.println("The total number of nodes in the given complete binary tree are: " + count[0]);
+        System.out.println(totalNodes(root));
     }
 }

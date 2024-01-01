@@ -47,11 +47,12 @@ public class WordLadderI {
             // we return the steps as soon as
             // the first occurrence of targetWord is found.
             if (word.equals(targetWord)) return steps;
-            char replacedCharArray[] = word.toCharArray();
+
             // Now, replace each character of ‘word’ with char
             // from a-z then check if ‘word’ exists in wordList.
             for (int i = 0; i < word.length(); i++) {
                 for (char ch = 'a'; ch <= 'z'; ch++) {
+                    char replacedCharArray[] = word.toCharArray();
                     replacedCharArray[i] = ch;
                     String replacedWord = new String(replacedCharArray);
 

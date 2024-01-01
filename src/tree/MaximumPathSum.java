@@ -30,9 +30,9 @@ public class MaximumPathSum {
 
     }
     public static int maxPathSum(TreeNode root) {
-        int[] maxvalue = new int[1];
-        maxPathSumRecursive(root, maxvalue);
-        return maxvalue[0];
+        int[] maxValue = new int[1];
+        maxPathSumRecursive(root, maxValue);
+        return maxValue[0];
     }
 
     public static int maxPathSumRecursive(TreeNode root, int[] maxValue){

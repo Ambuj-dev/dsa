@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         final int MAX_REQUESTS_PER_SEC = 10;
 
-        RateLimiter rateLimiter = new TokenBucketLazyRefill(MAX_REQUESTS_PER_SEC); // new a RateLimiter here
+        RateLimiter rateLimiter = new SlidingWindow(MAX_REQUESTS_PER_SEC); // new a RateLimiter here
 
         Thread requestThread = new Thread(() -> {
             sendRequest(rateLimiter, 10, 1);

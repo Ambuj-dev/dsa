@@ -1,9 +1,10 @@
 package tree;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class PrintAllNodesAtKDistance {
-    private void markParents(TreeNode root, Map<TreeNode, TreeNode> parent_track) {
+    private static void markParents(TreeNode root, Map<TreeNode, TreeNode> parent_track) {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
         while(!queue.isEmpty()) {
@@ -18,7 +19,7 @@ public class PrintAllNodesAtKDistance {
             }
         }
     }
-    public List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
+    public static List<Integer> distanceK(TreeNode root, TreeNode target, int k) {
         Map<TreeNode, TreeNode> parent_track = new HashMap<>();
         markParents(root, parent_track);
         Map<TreeNode, Boolean> visited = new HashMap<>();
@@ -46,11 +47,25 @@ public class PrintAllNodesAtKDistance {
                 }
             }
         }
-        List<Integer> result = new ArrayList<>();
+        return queue.stream().map(node -> node.val).collect(Collectors.toList());
+        /*List<Integer> result = new ArrayList<>();
         while(!queue.isEmpty()) {
             TreeNode current = queue.poll();
             result.add(current.val);
         }
-        return result;
+        return result;*/
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(3);
+        root.left = new TreeNode(5);
+        root.right = new TreeNode(1);
+        root.left.left = new TreeNode(6);
+        root.left.right = new TreeNode(2);
+        root.left.right.left = new TreeNode(7);
+        root.left.right.right = new TreeNode(4);
+        root.right.left = new TreeNode(0);
+        root.right.right = new TreeNode(8);
+        System.out.println(distanceK(root, root.left, 2));
     }
 }

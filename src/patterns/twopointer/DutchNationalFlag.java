@@ -10,6 +10,7 @@ public class DutchNationalFlag {
                 swap(arr, i, low);
                 // increment 'i' and 'low'
                 i++;
+
                 low++;
             } else if (arr[i] == 1) {
                 i++;

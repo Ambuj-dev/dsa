@@ -36,7 +36,7 @@ public class BoundaryTraversal {
     }
 
     static ArrayList<Integer> printBoundary(Node node) {
-        ArrayList<Integer> ans = new ArrayList<Integer>();
+        ArrayList<Integer> ans = new ArrayList<>();
         if (!isLeaf(node)) ans.add(node.data);
         addLeftBoundary(node, ans);
         addLeaves(node, ans);

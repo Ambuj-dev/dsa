@@ -1,5 +1,8 @@
 package graphs;
-
+/*
+Time Complexity: O(V^3), as we have three nested loops each running for V times, where V = no. of vertices.
+Space Complexity: O(V^2), where V = no. of vertices. This space complexity is due to storing the adjacency matrix of the given graph.
+ */
 public class FloydWarshallAlgo {
     public void shortest_distance(int[][] matrix) {
         int n = matrix.length;

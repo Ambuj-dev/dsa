@@ -22,7 +22,6 @@ public class PreOrderTraversal {
                 s.push(topNode.left);
         }
         return preOrder;
-
     }
 
     static void preOrderTrav(Node curr, ArrayList<Integer> preOrder) {

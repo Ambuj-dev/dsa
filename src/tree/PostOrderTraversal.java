@@ -1,6 +1,8 @@
 package tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Stack;
 
 public class PostOrderTraversal {
@@ -28,8 +30,28 @@ public class PostOrderTraversal {
         return postOrder;
     }
 
+    //Using 1 stacks
+    static List<Integer> postOrderTravOneStack(Node curr) {
+
+        LinkedList<Integer> postOrder = new LinkedList<>();
+        if (curr == null) return postOrder;
+
+        Stack<Node> s1 = new Stack<>();
+        s1.push(curr);
+        while (!s1.isEmpty()) {
+            curr = s1.pop();
+            postOrder.addFirst(curr.data);
+            if (curr.left != null)
+                s1.push(curr.left);
+            if (curr.right != null)
+                s1.push(curr.right);
+        }
+
+        return postOrder;
+    }
+
     //Using One stack
-    static ArrayList<Integer> postOrderTravOneStack(Node cur) {
+    static ArrayList<Integer> postOrderTravOneStack1(Node cur) {
 
         ArrayList<Integer> postOrder = new ArrayList<>();
         if (cur == null) return postOrder;
@@ -55,7 +77,7 @@ public class PostOrderTraversal {
         return postOrder;
     }
 
-    static void postOrderTrav(Node curr, ArrayList<Integer> postOrder) {
+    static void postOrderTrav(Node curr, List<Integer> postOrder) {
         if (curr == null)
             return;
 
@@ -78,7 +100,7 @@ public class PostOrderTraversal {
         root.right.right.left = new Node(9);
         root.right.right.right = new Node(10);
 
-        ArrayList<Integer> postOrder = new ArrayList<>();
+        List<Integer> postOrder = new ArrayList<>();
         postOrder = postOrderTravTwoStack(root);
 
         System.out.println("The postOrder Traversal is : ");
@@ -95,6 +117,32 @@ public class PostOrderTraversal {
 
         postOrder = new ArrayList<>();
         postOrderTrav(root, postOrder);
+
+        System.out.println("\nThe postOrder Traversal is : ");
+        for (int i = 0; i < postOrder.size(); i++) {
+            System.out.print(postOrder.get(i) + " ");
+        }
+
+        Node node1 = new Node(1);
+        node1.left = new Node(2);
+        node1.right = new Node(3);
+        node1.left.left = new Node(4);
+        node1.left.right = new Node(5);
+
+        //postOrder = new ArrayList<>();
+        postOrder = postOrderTravOneStack(node1);
+
+        System.out.println("\nThe postOrder Traversal is : ");
+        for (int i = 0; i < postOrder.size(); i++) {
+            System.out.print(postOrder.get(i) + " ");
+        }
+        postOrder = postOrderTravTwoStack(node1);
+
+        System.out.println("\nThe postOrder Traversal is : ");
+        for (int i = 0; i < postOrder.size(); i++) {
+            System.out.print(postOrder.get(i) + " ");
+        }
+        postOrder = postOrderTravOneStack1(node1);
 
         System.out.println("\nThe postOrder Traversal is : ");
         for (int i = 0; i < postOrder.size(); i++) {

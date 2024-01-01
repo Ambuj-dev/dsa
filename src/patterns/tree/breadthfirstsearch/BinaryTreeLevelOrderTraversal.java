@@ -27,6 +27,7 @@ public class BinaryTreeLevelOrderTraversal {
         System.out.println(levelHavingMaximumSum(node));
         System.out.println(eachLevelMaximum(node));
         System.out.println(findMinimumDepth(node));
+        System.out.println("Min depth "+minDepth(node));
         System.out.println(findMaximumDepth(node));
         System.out.println(maxDepth(node));
         System.out.println(findSuccessor(node, 9));
@@ -198,6 +199,11 @@ public class BinaryTreeLevelOrderTraversal {
         }
         return minimumDepth;
     }
+    private static int minDepth(TreeNode root) {
+        if(root == null) return 0;
+        return 1 + Math.min(minDepth(root.left), minDepth(root.right));
+    }
+
 
     private static int findMaximumDepth(TreeNode root){
         if(root == null) return 0;
@@ -279,8 +285,8 @@ public class BinaryTreeLevelOrderTraversal {
         if(root == null) return null;
         if(root.left != null) root.left.next = root.right;
         if(root.right != null && root.next != null) root.right.next = root.next.left;
-        connect(root.left);
-        connect(root.right);
+        connectOptimized2(root.left);
+        connectOptimized2(root.right);
         return root;
     }
 

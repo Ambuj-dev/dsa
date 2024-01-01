@@ -20,7 +20,7 @@ public class TopologySort {
         // b. Build the graph
         for (int i = 0; i < edges.length; i++) {
             int parent = edges[i][0], child = edges[i][1];
-            graph.get(parent).add(child); // put the child into it's parent's list
+            graph.get(parent).add(child); // put the child into it's parent's list[[
             inDegree.put(child, inDegree.get(child) + 1); // increment child's inDegree
         }
 

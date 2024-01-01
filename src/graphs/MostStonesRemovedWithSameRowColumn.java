@@ -37,7 +37,7 @@ public class MostStonesRemovedWithSameRowColumn {
             maxRow = Math.max(maxRow, stones[i][0]);
             maxCol = Math.max(maxCol, stones[i][1]);
         }
-        DisjointSet ds = new DisjointSet(maxRow + maxCol+ 1);
+        DisjointSet ds = new DisjointSet(maxRow + maxCol + 1);
         HashSet<Integer> stoneNodes = new HashSet<>();
         for (int i = 0; i < n; i++) {
             int nodeRow = stones[i][0];

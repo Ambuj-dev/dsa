@@ -24,7 +24,7 @@ public class TripletsWithSmallerSum {
     public int threeSumCount(int[] nums, int target){
         Arrays.sort(nums);
         int count = 0;
-        for(int i = 0; i< nums.length - 2; i++){
+        for(int i = 0; i < nums.length - 2; i++){
             count += allTwoSumCount(nums, i, target-nums[i]);
         }
         return count;

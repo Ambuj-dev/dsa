@@ -10,13 +10,13 @@ public class Perimeter {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 if (matrix[i][j] == 1 && !visited[i][j]) // only if the cell is a land and not visited
-                    return Solution(matrix, visited, i, j);
+                    return solution(matrix, visited, i, j);
             }
         }
         return 0;
     }
 
-    private static int Solution(int[][] matrix, boolean[][] visited, int x, int y) {
+    private static int solution(int[][] matrix, boolean[][] visited, int x, int y) {
         if (x < 0 || x >= matrix.length || y < 0 || y >= matrix[0].length)
             return 1; // returning 1, since this a boundary cell initiated this DFS call
         if (matrix[x][y] == 0)
@@ -29,10 +29,10 @@ public class Perimeter {
 
         int edgeCount = 0;
         // recursively visit all neighboring cells (horizontally & vertically)
-        edgeCount += Solution(matrix, visited, x + 1, y); // lower cell
-        edgeCount += Solution(matrix, visited, x - 1, y); // upper cell
-        edgeCount += Solution(matrix, visited, x, y + 1); // right cell
-        edgeCount += Solution(matrix, visited, x, y - 1); // left cell
+        edgeCount += solution(matrix, visited, x + 1, y); // lower cell
+        edgeCount += solution(matrix, visited, x - 1, y); // upper cell
+        edgeCount += solution(matrix, visited, x, y + 1); // right cell
+        edgeCount += solution(matrix, visited, x, y - 1); // left cell
 
         return edgeCount;
     }

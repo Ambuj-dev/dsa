@@ -15,7 +15,6 @@ public class ShortestPathDAGTopoSort {
         System.out.println();
     }
 //User function Template for Java
-
     private void topoSort(int node, ArrayList<ArrayList<Pair>> adj,
                           int vis[], Stack<Integer> st) {
         //This is the function to implement Topological sort.

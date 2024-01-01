@@ -6,7 +6,7 @@ public class Edge implements Comparable<Edge> {
         this.src = _src; this.dest = _dest; this.weight = _wt;
     }
     // Comparator function used for
-    // sorting edgesbased on their weight
+    // sorting edges based on their weight
     public int compareTo(Edge compareEdge) {
         return this.weight - compareEdge.weight;
     }

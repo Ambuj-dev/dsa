@@ -19,11 +19,11 @@ public class InOrderSuccessor {
     public static TreeNode inOrderPredecessor(TreeNode root, TreeNode p){
         TreeNode predecessor = null;
         while(root != null){
-            if(root.val >= p.val){
-                root = root.left;
-            }else{
+            if(root.val < p.val){
                 predecessor = root;
                 root = root.right;
+            }else{
+                root = root.left;
             }
         }
         return predecessor;

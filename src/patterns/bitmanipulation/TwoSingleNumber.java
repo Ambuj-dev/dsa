@@ -13,6 +13,8 @@ public class TwoSingleNumber {
         arr = new int[] { 2, 1, 3, 2 };
         result = TwoSingleNumber.findSingleNumbers(arr);
         System.out.println("Single numbers are: " + result[0] + ", " + result[1]);
+        System.out.println(Integer.toBinaryString(5));
+        System.out.println(Integer.toBinaryString(-5));
     }
     public static int[] singleNumber(int[] nums) {
         int xxory = 0;

@@ -10,7 +10,7 @@ public class ShortestPathInAUndirectedGraph {
         int[][] edge = {{0,1},{0,3},{3,4},{4,5},{5,6},{1,2},{2,6},{6,7},{7,8},{6,8}};
 
         ShortestPathInAUndirectedGraph obj = new ShortestPathInAUndirectedGraph();
-        int res[] = obj.shortestPath(edge,n,m,0);
+        int res[] = obj.shortestPath(edge,n,m,0);//0 1 2 1 2 3 3 4 4
         for(int i=0;i<n;i++){
             System.out.print(res[i]+" ");
         }
@@ -45,7 +45,7 @@ public class ShortestPathInAUndirectedGraph {
                 }
             }
         }
-        // Updated shortest distances are stored in the resultant array ‘ans’.
+        // Updated the shortest distances are stored in the resultant array ‘ans’.
         // Unreachable nodes are marked as -1.
         for(int i = 0;i<n;i++) {
             if(dist[i] == 1e9) {

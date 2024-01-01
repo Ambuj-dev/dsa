@@ -1,9 +1,6 @@
 package patterns.mergeInterval;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
 
 public class MinimumMeetingRoom1 {
     public static int findMinimumMeetingRooms(List<Meeting> meetings) {
@@ -11,11 +8,11 @@ public class MinimumMeetingRoom1 {
             return 0;
 
         // sort the meetings by start time
-        Collections.sort(meetings, (a, b) -> Integer.compare(a.start, b.start));
+        Collections.sort(meetings, Comparator.comparingInt(a -> a.start));
 
         int minRooms = 0;
         PriorityQueue<Meeting> minHeap =
-                new PriorityQueue<>(meetings.size(), (a, b) -> Integer.compare(a.end, b.end));
+                new PriorityQueue<>(meetings.size(), Comparator.comparingInt(a -> a.end));
         for (Meeting meeting : meetings) {
             // remove all meetings that have ended
             while (!minHeap.isEmpty() && meeting.start >= minHeap.peek().end)

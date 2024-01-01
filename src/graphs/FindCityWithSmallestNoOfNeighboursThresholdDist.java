@@ -1,6 +1,10 @@
 package graphs;
 
 public class FindCityWithSmallestNoOfNeighboursThresholdDist {
+    /*
+    Time Complexity: O(V^3), as we have three nested loops each running for V times, where V = no. of vertices.
+    Space Complexity: O(V^2), where V = no. of vertices. This space complexity is due to storing the adjacency matrix of the given graph.
+     */
     int findCity(int n, int m, int edges[][],
                  int distanceThreshold) {
         int[][] dist = new int[n][m];

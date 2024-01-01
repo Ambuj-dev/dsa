@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class KthSmallestNumber {
     public static int findKthSmallestNumber(int[] nums, int k) {
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>((n1, n2) -> n2 - n1);
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>((n1, n2) -> n2 - n1);
         // put first k numbers in the max heap
         for (int i = 0; i < k; i++)
             maxHeap.add(nums[i]);

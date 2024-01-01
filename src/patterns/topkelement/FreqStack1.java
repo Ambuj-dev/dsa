@@ -23,8 +23,6 @@ public class FreqStack1 {
 
         if(freq_stack.size()<=freq)freq_stack.add(new ArrayList<>());
         freq_stack.get(freq).add(val);
-
-
     }
 
     public int pop(){

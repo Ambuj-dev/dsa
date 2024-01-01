@@ -48,6 +48,10 @@ public class DijkstrasAlgoPQ {
 
     //Function to find the shortest distance of all the vertices
     //from the source vertex S.
+    /*
+    Time Complexity: O( E log(V) ), Where E = Number of edges and V = Number of Nodes.
+    Space Complexity: O( |E| + |V| ), Where E = Number of edges and V = Number of Nodes.
+     */
     static int[] dijkstra(int V, ArrayList<ArrayList<GraphNode>> adj, int S)
     {
         // Create a priority queue for storing the nodes as a pair {dist, node

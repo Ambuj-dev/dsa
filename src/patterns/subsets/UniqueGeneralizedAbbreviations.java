@@ -21,7 +21,7 @@ public class UniqueGeneralizedAbbreviations {
 
         public static List<String> generateGeneralizedAbbreviation(String word) {
             int wordLen = word.length();
-            List<String> result = new ArrayList<String>();
+            List<String> result = new ArrayList<>();
             Queue<AbbreviatedWord> queue = new LinkedList<>();
             queue.add(new AbbreviatedWord(new StringBuilder(), 0, 0));
             while (!queue.isEmpty()) {

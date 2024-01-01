@@ -13,7 +13,7 @@ public class DepthFirstSearch {
 
         //getting neighbour nodes
         for (Integer it : adj.get(node)) {
-            if (vis[it] == false) {
+            if (!vis[it]) {
                 dfs(it, vis, adj, ls);
             }
         }

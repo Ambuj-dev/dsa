@@ -20,7 +20,7 @@ public class RearrangeString {
 
 
     }
-
+//TC: O(N)
     public static String reorganizeStringOptimised(String s) {
         int[] charCount = new int[26];
         char[] arr = s.toCharArray();
@@ -53,6 +53,7 @@ public class RearrangeString {
         return String.valueOf(res);
     }
 
+    //TC: O(N*logN)
     public static String reorganizeString(String s) {
         int[] charCount = new int[26];
         for (char ch : s.toCharArray()) {
@@ -79,7 +80,7 @@ public class RearrangeString {
         if (block.freq > 0) return "";
         return res.toString();
     }
-
+  //TC:  O(N*logN)
     public static String rearrangeString(String str) {
         Map<Character, Integer> charFrequencyMap = new HashMap<>();
         for (char chr : str.toCharArray())

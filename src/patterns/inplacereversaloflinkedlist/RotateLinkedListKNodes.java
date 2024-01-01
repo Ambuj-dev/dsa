@@ -19,9 +19,15 @@ public class RotateLinkedListKNodes {
         rotations %= listLength; // no need to do rotations more than the length of the list
         int skipLength = listLength - rotations;
         ListNode lastNodeOfRotatedList = head;
-        for (int i = 0; i < skipLength - 1; i++)
-            lastNodeOfRotatedList = lastNodeOfRotatedList.next;
+        System.out.println("head "+head);
+        System.out.println(skipLength);
+        for (int i = 0; i < skipLength - 1; i++) {
 
+            lastNodeOfRotatedList = lastNodeOfRotatedList.next;
+            System.out.println("lastNodeOfRotatedList --> "+lastNodeOfRotatedList);
+        }
+
+        System.out.println("lastNodeOfRotatedList "+lastNodeOfRotatedList);
         // 'lastNodeOfRotatedList.next' is pointing to the sub-list of 'k' ending nodes
         head = lastNodeOfRotatedList.next;
         lastNodeOfRotatedList.next = null;

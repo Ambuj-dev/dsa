@@ -12,7 +12,7 @@ public class FloodFill {
         int n = image.length;
         int m = image[0].length;
         // there are exactly 4 neighbours
-        for(int i = 0;i<4;i++) {
+        for(int i = 0;i < 4;i++) {
             int nrow = row + delRow[i];
             int ncol = col + delCol[i];
             // check for valid coordinate

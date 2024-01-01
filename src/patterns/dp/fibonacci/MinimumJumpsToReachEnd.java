@@ -1,6 +1,7 @@
 package patterns.dp.fibonacci;
 
 public class MinimumJumpsToReachEnd {
+    //TC:O(2^n) SC: O(N) - recursion stack
     public int countMinJumps(int[] jumps) {
         return this.countMinJumpsRecursive(jumps, 0);
     }
@@ -24,7 +25,39 @@ public class MinimumJumpsToReachEnd {
         }
         return totalJumps;
     }
+    //TC:O(n^2) SC: O(N) - recursion stack
+    public int countMinJumpsMemoize(int[] jumps) {
+        int dp[] = new int[jumps.length];
+        return this.countMinJumpsRecursiveMemoize(dp, jumps, 0);
+    }
 
+    private int countMinJumpsRecursiveMemoize(int[] dp, int[] jumps, int currentIndex) {
+        // if we have reached the last index, we don't need any more jumps
+        if( currentIndex == jumps.length - 1)
+            return 0;
+
+        // If an element is 0, then we cannot move through that element
+        if (jumps[currentIndex] == 0)
+            return Integer.MAX_VALUE;
+
+        // if we have already solved this problem, return the result
+        if(dp[currentIndex] != 0)
+            return dp[currentIndex];
+
+        int totalJumps = Integer.MAX_VALUE;
+        int start = currentIndex + 1;
+        int end = currentIndex + jumps[currentIndex];
+        while(start < jumps.length && start <= end) {
+            // jump one step and recurse for the remaining array
+            int minJumps = countMinJumpsRecursiveMemoize(dp, jumps, start++);
+            if(minJumps != Integer.MAX_VALUE)
+                totalJumps = Math.min(totalJumps, minJumps + 1);
+        }
+        dp[currentIndex] = totalJumps;
+        return dp[currentIndex];
+    }
+
+    //TC:O(n) SC: 1
     public int jump(int[] nums){
         int jump = 0;
         int pos = 0;
@@ -39,6 +72,8 @@ public class MinimumJumpsToReachEnd {
         if(des < nums.length - 1) return Integer.MAX_VALUE;
         return jump;
     }
+
+    //TC:O(n^2) SC: O(N) - recursion stack
     public int countMinJumpsTabulation(int[] jumps) {
         int[] dp = new int[jumps.length];
 
@@ -47,8 +82,10 @@ public class MinimumJumpsToReachEnd {
             dp[i] = Integer.MAX_VALUE;
 
         for(int start=0; start < jumps.length-1; start++) {
-            for(int end=start+1; end <= start+jumps[start] && end < jumps.length; end++)
-                dp[end] = Math.min(dp[end], dp[start]+1);
+            for(int end=start+1; end <= start+jumps[start] && end < jumps.length; end++) {
+               // if( dp[start] != Integer.MAX_VALUE)
+                dp[end] = Math.min(dp[end], dp[start] + 1);
+            }
         }
         return dp[jumps.length-1];
     }

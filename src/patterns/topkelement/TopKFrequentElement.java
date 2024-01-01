@@ -5,6 +5,7 @@ import java.util.*;
 public class TopKFrequentElement {
     public static void main(String[] args) {
         System.out.println(Arrays.toString(topKFrequent(new int[]{1,1,1,2,2,3,3},2)));
+        System.out.println(Arrays.toString(topKFrequent1(new int[]{1,1,1,2,2,3,3},2)));
         List<Integer> result = TopKFrequentElement.findTopKFrequentNumbers(
                 new int[] { 1, 3, 5, 12, 11, 12, 11 }, 2);
         System.out.println("Here are the K frequent numbers: " + result);
@@ -13,7 +14,7 @@ public class TopKFrequentElement {
         System.out.println("Here are the K frequent numbers: " + result);
 
     }
-
+//TC:O(N)
     public static  int[] topKFrequent(int[] nums, int k) {
         List<Integer>[] bucket = new List[nums.length + 1];
         HashMap<Integer, Integer> hm = new HashMap<>();
@@ -45,6 +46,38 @@ public class TopKFrequentElement {
         return ans;
     }
 
+    //TC:O(N)
+    public static  int[] topKFrequent1(int[] nums, int k) {
+        List<List<Integer>> bucket = new ArrayList(nums.length+1);
+        for(int i = 0; i< nums.length; i++){
+            bucket.add(new ArrayList<>());
+        }
+        HashMap<Integer, Integer> hm = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++)
+            hm.put(nums[i], hm.getOrDefault(nums[i], 0) + 1);
+
+
+        for (int key : hm.keySet()) {
+            int frequency = hm.get(key);
+            bucket.get(frequency).add(key);
+        }
+
+        int ans[] = new int[k];
+        int count = 0;
+        for (int i = bucket.size() - 1; i >= 0; i--) {
+            if (bucket.get(i) != null) {
+                for (int j = 0; j < bucket.get(i).size(); j++) {
+                    if (count == k) break;
+                    ans[count++] = bucket.get(i).get(j);
+                }
+            }
+            if (count == k) break;
+        }
+
+        return ans;
+    }
+//TC: O(N+Nlogk)
     public static List<Integer> findTopKFrequentNumbers(int[] nums, int k) {
         // find the frequency of each number
         Map<Integer, Integer> numFrequencyMap = new HashMap<>();

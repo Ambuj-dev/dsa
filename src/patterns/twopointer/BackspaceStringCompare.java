@@ -23,7 +23,7 @@ public class BackspaceStringCompare {
                 return false;
             }
             pointerOne = i - 1;
-            pointerTwo = j -1;
+            pointerTwo = j - 1;
         }
         return true;
     }

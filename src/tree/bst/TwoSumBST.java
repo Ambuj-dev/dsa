@@ -22,7 +22,7 @@ public class TwoSumBST {
         }
         return false;
     }
-
+    //TC: O(N) SC:O(N)
     public boolean findTargetOptimised(TreeNode root, int k) {
         Set<Integer> set=new HashSet<>();
         return helper(root,k,set);
@@ -35,7 +35,6 @@ public class TwoSumBST {
             return true;
         set.add(root.val);
         return helper(root.left,k,set) || helper(root.right,k,set);
-
     }
 }
 class V1BSTIterator {
